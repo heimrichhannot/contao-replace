@@ -17,9 +17,4 @@ class Hooks extends Replace
 	{
 		return static::replace($strBuffer);
 	}
-
-	public function outputFrontendTemplateHook($strBuffer, $strTemplate)
-	{
-		return static::replace($strBuffer);
-	}
-} 
+}
