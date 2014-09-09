@@ -23,7 +23,7 @@ class Replace
 		{
 			if(!(isset($config['search']) && isset($config['replace']))) continue;
 
-			$search = '#' . $config['search'] . '(?![^<]*>)#'; // ignore html tags
+			$search = '#' . $config['search'] . '(?![^<]*>)#s'; // ignore html tags
 
 			$strBuffer = preg_replace($search, $config['replace'], $strBuffer);
 		}
