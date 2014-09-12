@@ -25,14 +25,14 @@ $arrFields = array
 					'label'     => &$GLOBALS['TL_LANG']['tl_settings']['replace']['search'],
 					'exclude'   => true,
 					'inputType' => 'text',
-					'eval'      => array('style' => 'width:280px', 'allowHtml' => true)
+					'eval'      => array('style' => 'width:280px', 'allowHtml' => true, 'preserveTags' => true)
 				),
 				'replace' => array
 				(
 					'label'     => &$GLOBALS['TL_LANG']['tl_settings']['replace']['replace'],
 					'exclude'   => true,
 					'inputType' => 'text',
-					'eval'      => array('style' => 'width:500px', 'allowHtml' => true)
+					'eval'      => array('style' => 'width:500px', 'allowHtml' => true, 'preserveTags' => false)
 				),
 			)
 		),
