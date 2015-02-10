@@ -1,0 +1,33 @@
+{
+    "name": "heimrichhannot/contao-replace",
+    "description":"Small contao module to replace content by search and replace. Configuration inside System Settings.",
+    "keywords":["contao", "replace", "content-manipulation"],
+    "type": "contao-module",
+    "homepage":"https://github.com/heimrichhannot/contao-replace",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"Heimrich & Hannot",
+            "email":"digitales@heimrich-hannot.de",
+            "homepage":"http://www.heimrich-hannot.de",
+            "role":"Developer"
+        }
+    ],
+    "support":{
+        "issues":"https://github.com/heimrichhannot/contao-replace/issues"
+    },
+    "require": {
+        "contao/core": ">=3.0,<4-dev",
+	"menatwork/contao-multicolumnwizard": ">=2.10,<4"
+    },
+    "autoload": {
+        "classmap": [""]
+    },
+    "extra": {
+        "contao": {
+            "sources": {
+                "": "system/modules/replace"
+            }
+        }
+    }
+}
