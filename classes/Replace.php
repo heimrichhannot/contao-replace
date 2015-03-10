@@ -23,6 +23,8 @@ class Replace
 
 		if(!isset($arrElements['BTAG']) && !isset($arrElements['BCONTENT'])) return $strBuffer;
 
+		$strTag = $arrElements['BTAG'];
+
 		$strBody = $arrElements['BCONTENT']; // replace body content only
 
 		foreach ($arrConfig as $name => $config)
@@ -34,7 +36,7 @@ class Replace
 			$strBody = preg_replace($search, $config['replace'], $strBody);
 		}
 
-		$strBuffer = preg_replace('#<body[^<]*>(?<BCONTENT>.*)<\/body>#s', $strBody, $strBuffer);
+		$strBuffer = preg_replace('#<body[^<]*>(?<BCONTENT>.*)<\/body>#s', $strTag . $strBody, $strBuffer);
 
 		return $strBuffer;
 	}
