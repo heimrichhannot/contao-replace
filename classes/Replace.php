@@ -17,16 +17,24 @@ class Replace
 	{
 		$arrConfig = deserialize(\Config::get('replace'), true);
 
-		if(!is_array($arrConfig)) return $strBuffer;
+		if (!is_array($arrConfig)) return $strBuffer;
 
-		foreach($arrConfig as $name => $config)
+		preg_match('#(?<BTAG><body[^<]*>)(?<BCONTENT>.*)<\/body>#s', $strBuffer, $arrElements);
+
+		if(!isset($arrElements['BTAG']) && !isset($arrElements['BCONTENT'])) return $strBuffer;
+
+		$strBody = $arrElements['BCONTENT']; // replace body content only
+
+		foreach ($arrConfig as $name => $config)
 		{
-			if(!(isset($config['search']) && isset($config['replace']))) continue;
+			if (!(isset($config['search']) && isset($config['replace']))) continue;
 
 			$search = '#' . $config['search'] . '(?![^<]*>)#s'; // ignore html tags
 
-			$strBuffer = preg_replace($search, $config['replace'], $strBuffer);
+			$strBody = preg_replace($search, $config['replace'], $strBody);
 		}
+
+		$strBuffer = preg_replace('#<body[^<]*>(?<BCONTENT>.*)<\/body>#s', $strBody, $strBuffer);
 
 		return $strBuffer;
 	}
