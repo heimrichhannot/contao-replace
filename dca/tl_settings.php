@@ -32,7 +32,14 @@ $arrFields = array
 					'label'     => &$GLOBALS['TL_LANG']['tl_settings']['replace']['replace'],
 					'exclude'   => true,
 					'inputType' => 'text',
-					'eval'      => array('style' => 'width:500px', 'allowHtml' => true, 'preserveTags' => false)
+					'eval'      => array('style' => 'width:400px', 'allowHtml' => true, 'preserveTags' => false)
+				),
+				'tags' => array
+				(
+					'label'     => &$GLOBALS['TL_LANG']['tl_settings']['replace']['tags'],
+					'exclude'   => true,
+					'inputType' => 'checkbox',
+					'eval'      => array('style' => 'width:80px')
 				),
 			)
 		),

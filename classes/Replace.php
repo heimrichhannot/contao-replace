@@ -31,7 +31,14 @@ class Replace
 		{
 			if (!(isset($config['search']) && isset($config['replace']))) continue;
 
-			$search = '#' . $config['search'] . '(?![^<]*>)#s'; // ignore html tags
+			$search = '#' . $config['search'];
+
+			if(!$config['tags'])
+			{
+				$search .= '(?![^<]*>)';  // ignore html tags
+			}
+
+			$search .= '#s';
 
 			$strBody = preg_replace($search, $config['replace'], $strBody);
 		}
