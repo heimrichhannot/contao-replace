@@ -38,7 +38,7 @@ class Replace
 				$search .= '(?![^<]*>)';  // ignore html tags
 			}
 
-			$search .= '#s';
+			$search .= '#sU'; // single line & ungreedy match
 
 			$strBody = preg_replace($search, $config['replace'], $strBody);
 		}
