@@ -43,8 +43,8 @@ class Replace
 			$strBody = preg_replace($search, $config['replace'], $strBody);
 		}
 		
-		$strBuffer = preg_replace('#<body[^<]*>(?<BCONTENT>.*)<\/body>#s', $strTag . $strBody, $strBuffer);
-
+		$strBuffer = preg_replace('#<body[^<]*>(?<BCONTENT>.*)<\/body>#s', $strTag . $strBody . '</body>', $strBuffer);
+		
 		return $strBuffer;
 	}
 
